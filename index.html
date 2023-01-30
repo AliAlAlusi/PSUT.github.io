@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0072)https://portal.psut.edu.jo:5050/StudentServices/StudentAcademicInfo.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+<link rel="icon" type="image/png" href="https://portal.psut.edu.jo:5050/images/favicon.png"><meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0"><title>البيانات الأكاديمية</title><link id="style_screen_styles" rel="stylesheet" type="text/css" href="./البيانات الأكاديمية_files/screen_styles.css"><link id="style_screen_layout_small" rel="stylesheet" type="text/css" media="only screen and (min-width:300px) and ( max-width:979px)" href="./البيانات الأكاديمية_files/screen_layout_small.css">
+
+    <!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <link href="./البيانات الأكاديمية_files/fontawesome-all.min.css" rel="stylesheet"><link href="./البيانات الأكاديمية_files/brands.min.css" rel="stylesheet"><link href="./البيانات الأكاديمية_files/fontawesome.min.css" rel="stylesheet"><link href="./البيانات الأكاديمية_files/regular.min.css" rel="stylesheet"><link href="./البيانات الأكاديمية_files/solid.min.css" rel="stylesheet"><link href="./البيانات الأكاديمية_files/svg-with-js.css" rel="stylesheet"><link href="./البيانات الأكاديمية_files/v4-shims.min.css" rel="stylesheet"><link id="style_sideMenu" rel="stylesheet" type="text/css" href="./البيانات الأكاديمية_files/sideMenu.css"><link id="style_developer_style" rel="stylesheet" type="text/css" href="./البيانات الأكاديمية_files/developer_style.css"><link id="chosen_dropDown" rel="stylesheet" type="text/css" href="./البيانات الأكاديمية_files/chosen.css"><link id="TimeSelect" rel="stylesheet" type="text/css" href="./البيانات الأكاديمية_files/jquery.ptTimeSelect.css"><link id="style_TabMenu" rel="stylesheet" type="text/css" href="./البيانات الأكاديمية_files/TabMenu.css"><link rel="stylesheet" type="text/css" href="./البيانات الأكاديمية_files/jquery-ui.css">
+
+    <!-- prefix free to deal with vendor prefixes -->
+    
+
+    <!-- jQuery 
+    <script src="http://thecodeplayer.com/uploads/js/jquery-1.7.1.min.js" type="text/javascript"></script>-->
+    <script src="./البيانات الأكاديمية_files/jquery.min.js.download" type="text/javascript"></script>
+
+
+    <!--<script src="jQueryAssets/jquery.collapser.js"></script>
+    <script src="../jQueryAssets/jquery.collapser.js"></script>-->
+
+    <script type="text/javascript">
+        /*jQuery time*/
+        $(document).ready(function () {
+            $("#accordian h3").click(function () {
+                //slide up all the link lists
+                $("#accordian ul ul").slideUp();
+                //slide down the link list below the h3 clicked - only if its closed
+                if (!$(this).next().is(":visible")) {
+                    $(this).next().slideDown();
+                }
+                //Test();
+            })
+        })
+
+        $(document).ready(function () {
+            $("#accordianSmall h3").click(function () {
+                //slide up all the link lists
+                $("#accordianSmall ul ul").slideUp();
+                //slide down the link list below the h3 clicked - only if its closed
+                if (!$(this).next().is(":visible")) {
+                    $(this).next().slideDown();
+
+                }
+            })
+        });
+
+        //All dropDown With Choosen (Search)
+        function ChoosenDropDown() {
+            var language = document.getElementById("lbllang");
+            var $items = $('.chzn-select');
+            if ($items.length) {
+                if (language.value == "ar-JO") {
+                    $items.addClass('chzn-select chzn-rtl');
+                }
+                else {
+                    $items.removeClass('chzn-rtl');
+                }
+            }
+        }
+
+        //To active clicked menu (make it diffrent color )
+        $(function () {
+            setNavigation();
+        });
+
+        function setNavigation() {
+            var path = window.location.pathname;
+            path = path.replace(/\/$/, "");
+            path = " " + decodeURIComponent(path);
+
+            $("#accordian ul li a").each(function () {
+                var href = $(this).attr('href');
+                if (path.substring(0, href.length) === href) {
+                    $(this).closest('h3').addClass('active');
+                    $(this).closest('#accordian ul ul li').addClass('active');
+                    $(this).closest("#accordian ul ul").css("display", "block");
+                }
+            });
+            $("#accordianSmall ul li a").each(function () {
+                var href = $(this).attr('href');
+                if (path.substring(0, href.length) === href) {
+                    $(this).closest('h3').addClass('active');
+                    $(this).closest('#accordianSmall ul ul li').addClass('active');
+                    //  $(this).closest("#accordianSmall ul ul").css("display", "block");
+                }
+            });
+        }
+        //function setNavigation() {
+        //           var path = window.location.pathname;
+        //           path = path.replace(/\/$/, "");
+        //           path = " " + decodeURIComponent(path);
+
+        //           $("#accordian ul li a").each(function () {
+        //               var href = $(this).attr('href');
+        //               if (path.substring(0, href.length) === href) {
+        //                   $('#accordian h3').closest("#accordian ul ul").css("display", "block");
+        //               }
+        //           });
+        function PopUpBlocked() {
+            document.forms[0].target = "_blank";
+        }
+        function ResetTarget() {
+            var oForm = document.forms[0];
+            oForm.target = "_self";
+        }
+        function LogoutButton() {
+
+            localStorage.setItem("app-logout", 'logout' + Math.random());
+            var oForm = document.forms[0];
+            oForm.target = "_self";
+        }
+        window.addEventListener('storage', function (event) {
+            if (event.key == "app-logout") {
+                // window.location = $('a#_linkLogout').attr('href');
+                window.location = 'login.aspx';
+
+            }
+        }, false);
+    </script>
+
+
+</head>
+<body>
+    <form method="post" action="https://portal.psut.edu.jo:5050/StudentServices/StudentAcademicInfo.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1" autocomplete="off">
+<div class="aspNetHidden">
+<input type="hidden" name="toolkitScriptMaster_HiddenField" id="toolkitScriptMaster_HiddenField" value="">
+
+
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./البيانات الأكاديمية_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./البيانات الأكاديمية_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./البيانات الأكاديمية_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script src="./البيانات الأكاديمية_files/ScriptResource(2).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	
+	
+</div>
+        
+        <nav class="navSmallMenu noPrint">
+            <a href="https://portal.psut.edu.jo:5050/StudentServices/StudentAcademicInfo.aspx#" class="nav-toggle-btn "></a> 
+            <div id="accordianSmall"><ul><li><h3><img src="./البيانات الأكاديمية_files/user2.png">بيانات الطالب</h3><ul><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentProfile.aspx">ملف الطالب</a></li><li class="active"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentAcademicInfo.aspx">الفصول السابقه</a></li></ul></li><li><h3><img src="./البيانات الأكاديمية_files/table.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentStudySchedule.aspx">الفصل الحالي</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/cal.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentExamSchedule.aspx">جدول الامتحانات</a></h3></li><li><h3><a href="https://portal.psut.edu.jo:5050/StudentServices/CalcAverage.aspx">إحتساب المعدل</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/copy.png"><a href="https://portal.psut.edu.jo:5050/ProposedCoursesSchedule.aspx">مواد الفصول</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/map.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentStudyPlan.aspx">الخطة الدراسية</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/doc.png">التسجيل</h3><ul><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentRegDate.aspx">مواعيد التسجيل</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentRegInstructions.aspx">السحب والإضافة</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentReqNewSection.aspx">طلب فتح شعبة</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentCalculateFees.aspx">إحتساب الرسوم</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentAllExamSchedule.aspx">امتحانات الفصل القادم</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentRegInstructions.aspx">جدول المواد المسجلة</a></li></ul></li><li><h3><img src="./البيانات الأكاديمية_files/money.png">مالية</h3><ul><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentAccount.aspx">كشف حساب طالب</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentPaymentList.aspx">الدفعات المقدمة</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentOnlinePayment.aspx">الدفع الإلكتروني</a></li></ul></li><li><h3><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentActionsList.aspx">الخدمات الإلكترونية</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/clipboard.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentSubscriptions.aspx">الاشـتراكـات</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/clipboard.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentSurveyList.aspx">إستبيان</a></h3></li></ul></div>   
+               
+        </nav>
+        <div class="content">
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody><tr>
+                    <td colspan="3" valign="top" id="pageHeader" class="noPrint">
+                        <a href="https://portal.psut.edu.jo:5050/IndexPage.aspx" id="logo"></a>
+                        <div id="notifyBox">
+                            <div id="userBlock">
+                                <span id="lblLoggedUserName">جمال العواملة<div style="font-size:10px">اخر دخول:29/01/2023 11:26:07 ص</div></span>
+                            </div>
+                            <div class="IconBlock">
+                                <a href="https://portal.psut.edu.jo:5050/Help.aspx" class="IconMenu far fa-question-circle fa-md" title="Help" style="display: none;"></a>
+
+                                
+                                <a href="https://portal.psut.edu.jo:5050/IndexPage.aspx" class="IconMenu fas fa-home fa-md" title="Home"></a>
+
+                                
+
+                                
+
+                                
+                                
+                                <a onclick="ResetTarget();" id="lbtnLanguage" class="Btn5" href="javascript:__doPostBack(&#39;ctl00$lbtnLanguage&#39;,&#39;&#39;)">English</a>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" id="sideMenuDisk" class="noPrint">
+                        
+                        <div id="accordian"><ul><li><h3><img src="./البيانات الأكاديمية_files/user2.png">بيانات الطالب</h3><ul style="display: block;"><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentProfile.aspx">ملف الطالب</a></li><li class="active"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentAcademicInfo.aspx">الفصول السابقه</a></li></ul></li><li><h3><img src="./البيانات الأكاديمية_files/table.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentStudySchedule.aspx">الفصل الحالي</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/cal.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentExamSchedule.aspx">جدول الامتحانات</a></h3></li><li><h3><a href="https://portal.psut.edu.jo:5050/StudentServices/CalcAverage.aspx">إحتساب المعدل</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/copy.png"><a href="https://portal.psut.edu.jo:5050/ProposedCoursesSchedule.aspx">مواد الفصول</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/map.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentStudyPlan.aspx">الخطة الدراسية</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/doc.png">التسجيل</h3><ul><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentRegDate.aspx">مواعيد التسجيل</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentRegInstructions.aspx">السحب والإضافة</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentReqNewSection.aspx">طلب فتح شعبة</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentCalculateFees.aspx">إحتساب الرسوم</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentAllExamSchedule.aspx">امتحانات الفصل القادم</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentRegInstructions.aspx">جدول المواد المسجلة</a></li></ul></li><li><h3><img src="./البيانات الأكاديمية_files/money.png">مالية</h3><ul><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentAccount.aspx">كشف حساب طالب</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentPaymentList.aspx">الدفعات المقدمة</a></li><li><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentOnlinePayment.aspx">الدفع الإلكتروني</a></li></ul></li><li><h3><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentActionsList.aspx">الخدمات الإلكترونية</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/clipboard.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentSubscriptions.aspx">الاشـتراكـات</a></h3></li><li><h3><img src="./البيانات الأكاديمية_files/clipboard.png"><a href="https://portal.psut.edu.jo:5050/StudentServices/StudentSurveyList.aspx">إستبيان</a></h3></li></ul></div>
+                    </td>
+                    <td width="1060" valign="top" id="ContentArea">
+                        <!--<div id="mainContentBox">-->
+                        
+                        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$toolkitScriptMaster', 'form1', ['tctl00$ContentPlaceHolder1$up','ContentPlaceHolder1_up'], [], [], 360000, 'ctl00');
+//]]>
+</script>
+
+
+                        
+    <div id="ContentPlaceHolder1_up">
+            <div class="mainContentBox">
+                <div class="infoBoxContainer">
+                    <script type="text/javascript" language="javascript">
+                        function HideShowControls() {
+                            var ddlYear = document.getElementById('ContentPlaceHolder1_ddlStudyYear');
+                            var selectedYear = ddlYear.options[ddlYear.selectedIndex].value;
+                            var ddlSemister = document.getElementById('ContentPlaceHolder1_ddlStudySemister');
+                            var selectedSemister = ddlSemister.options[ddlSemister.selectedIndex].value;
+
+                            document.getElementById('ContentPlaceHolder1_divSemisterDetails').style.display = "none";
+                            document.getElementById('ContentPlaceHolder1_divCoursesDetails').style.display = "none";
+                        }
+                    </script>
+                    <div class="infoBox">
+                        <span id="ContentPlaceHolder1_lblStudyYear">السنة الدراسية</span>
+
+                        <div class="infoBoxValue">
+                            <select name="ctl00$ContentPlaceHolder1$ddlStudyYear" id="ContentPlaceHolder1_ddlStudyYear" onchange="HideShowControls();">
+	<option value="-99">اختر</option>
+	<option value="2021">2021 - 2022</option>
+	<option selected="selected" value="2022">2022 - 2023</option>
+	<option value="0000">-</option>
+
+</select>
+                            <span id="ContentPlaceHolder1_rfvStudyYear" class="requiredFieldValidator" style="visibility:hidden;">*</span>
+                        </div>
+                    </div>
+                    <div class="infoBox">
+
+                        <span id="ContentPlaceHolder1_lblStudySemister">الفصل الدراسي</span>
+                        <div class="infoBoxValue">
+                            <select name="ctl00$ContentPlaceHolder1$ddlStudySemister" id="ContentPlaceHolder1_ddlStudySemister" onchange="HideShowControls();">
+	<option value="-99">اختر</option>
+	<option selected="selected" value="1">الفصل الأول</option>
+	<option value="2">الفصل الثاني</option>
+	<option value="3">الفصل الصيفي</option>
+
+</select>
+                            <span id="ContentPlaceHolder1_rfvStudySemister" class="requiredFieldValidator" style="visibility:hidden;">*</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center">
+                        <a id="ContentPlaceHolder1_btnSearch" class="buttonStyle" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnSearch&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">بحث</a>
+                        
+                        <a id="ContentPlaceHolder1_btnPrint" class="buttonStyle" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnPrint&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">طباعة</a>
+
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="ContentPlaceHolder1_divSemisterDetails" style="display:block">
+                <div class="mainContentBox">
+                    <div class="infoBoxContainer">
+
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblSemisterAvg">المعدل الفصلي</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblSemisterAvgValue"></span>
+                            </div>
+                        </div>
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblAccAvg">المعدل التراكمي</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblAccAvgValue"></span>
+                            </div>
+                        </div>
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblSemisterStatus">وضع الفصل</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblSemisterStatusValue">مسجل وغير منتهي</span>
+                            </div>
+                        </div>
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblRegisteredHours">الساعات المسجلة</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblRegisteredHoursValue">13</span>
+                            </div>
+                        </div>
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblPassedHours">الساعات المجتازة</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblPassedHoursValue"></span>
+                            </div>
+                        </div>
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblAccumulativeHours">الساعات التراكمية</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblAccumulativeHoursValue"></span>
+                            </div>
+                        </div>
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblAcademicStatus">الوضع الأكاديمي</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblAcademicStatusValue">منذر - انذار اول </span>
+                            </div>
+                        </div>
+                        <div class="infoBox">
+                            <span id="ContentPlaceHolder1_lblSemisterNotes">ملاحظات الفصل</span>
+                            <div class="infoBoxValue">
+                                <span id="ContentPlaceHolder1_lblSemisterNotesValue"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="ContentPlaceHolder1_divCoursesDetails" style="display:block">
+                        <div>
+	<table class="GridViewStyle" cellspacing="1" cellpadding="4" id="ContentPlaceHolder1_gvStudentAcademicInfo" style="width:100%;">
+		<tbody><tr class="GridViewHeaderStyle">
+			<th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$COURSE_ID&#39;)">رقم المادة</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$COURSE_ADESC&#39;)">اسم المادة</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$HOURS&#39;)">عدد الساعات</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$SECTION_NO&#39;)">الشعبة</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$DAY_ADESC&#39;)">اليوم</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$LECT_TIME&#39;)">الوقت</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$ONLINE_FLAG_PCT&#39;)">Online</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$MARK1&#39;)">الأولى</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$MARK2&#39;)">الثانية</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$MARK3&#39;)">الثالثة</a></th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$MARK4&#39;)">الامتحان النهائي</a></th><th scope="col">العلامة </th><th scope="col">النتيجة</th><th scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvStudentAcademicInfo&#39;,&#39;Sort$COURSE_STS_ADESC&#39;)">حالة المادة</a></th>
+		</tr><tr class="GridViewRowStyle">
+			<td>
+                                        
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl02$hdnShowMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnShowMark_0" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl02$hdnAppMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnAppMark_0" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl02$showMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_showMark_0" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl02$hdnstMarkType" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnstMarkType_0">
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNo_0">11103</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNameA_0">البرمجة البنائية</span>
+
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseHours_0">3</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvSection_0">3</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvDayA_0">ح ث خ</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvTime_0">12:00    13:00</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvOnlineFlag_0">لا</span>
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvResultAr_0">غير معتمدة</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseStatusA_0">منسحب </span>
+                                    </td>
+		</tr><tr class="GridViewAlternateRowStyle">
+			<td>
+                                        
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl03$hdnShowMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnShowMark_1" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl03$hdnAppMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnAppMark_1" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl03$showMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_showMark_1" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl03$hdnstMarkType" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnstMarkType_1">
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNo_1">11151</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNameA_1">مختبر البرمجة البنائية</span>
+
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseHours_1">1</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvSection_1">2</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvDayA_1">الاحد</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvTime_1">15:00    18:00</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvOnlineFlag_1">لا</span>
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvResultAr_1">غير معتمدة</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseStatusA_1">مسجله</span>
+                                    </td>
+		</tr><tr class="GridViewRowStyle">
+			<td>
+                                        
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl04$hdnShowMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnShowMark_2" value="1">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl04$hdnAppMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnAppMark_2" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl04$showMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_showMark_2" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl04$hdnstMarkType" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnstMarkType_2">
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNo_2">21221</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNameA_2">دارات كهربائية (1)</span>
+
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseHours_2">3</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvSection_2">4</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvDayA_2">ح ث خ</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvTime_2">13:00    14:00</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvOnlineFlag_2">لا</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark1_2">11</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark2_2">5</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark3_2">1</span>
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvResultAr_2">غير معتمدة</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseStatusA_2">مسجله</span>
+                                    </td>
+		</tr><tr class="GridViewAlternateRowStyle">
+			<td>
+                                        
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl05$hdnShowMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnShowMark_3" value="1">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl05$hdnAppMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnAppMark_3" value="1">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl05$showMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_showMark_3" value="1">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl05$hdnstMarkType" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnstMarkType_3">
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNo_3">31272</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNameA_3">التنمية والبيئة</span>
+
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseHours_3">3</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvSection_3">1</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvDayA_3">الاربعاء</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvTime_3">15:00    16:30</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvOnlineFlag_3">Blended</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark1_3">14</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark2_3">16</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark3_3">18</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvFinalMark_3">33</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvAvg_3">80</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvResultAr_3">ناجح</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseStatusA_3">مسجله</span>
+                                    </td>
+		</tr><tr class="GridViewRowStyle">
+			<td>
+                                        
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl06$hdnShowMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnShowMark_4" value="1">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl06$hdnAppMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnAppMark_4" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl06$showMark" id="ContentPlaceHolder1_gvStudentAcademicInfo_showMark_4" value="2">
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$gvStudentAcademicInfo$ctl06$hdnstMarkType" id="ContentPlaceHolder1_gvStudentAcademicInfo_hdnstMarkType_4">
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNo_4">20231</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseNameA_4">رياضيات(3)</span>
+
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseHours_4">3</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvSection_4">2</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvDayA_4">ن ر</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvTime_4">10:30    12:00</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_gvOnlineFlag_4">لا</span>
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark1_4">6</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark2_4">5</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvMark3_4">9</span>
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvResultAr_4">غير معتمدة</span>
+                                        
+                                    </td><td>
+                                        <span id="ContentPlaceHolder1_gvStudentAcademicInfo_lblGvCourseStatusA_4">مسجله</span>
+                                    </td>
+		</tr>
+	</tbody></table>
+</div>
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+                        <!--</div>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" valign="top" id="pageFooter" class="noPrint">
+
+                        <div id="PSU_Block">
+                            
+                            Copyright ©2023 Princess Sumaya University for Technology. All Rights Reserved.Developed by Royal Scientific Society
+                        </div>
+
+                        <div id="socialBlock">
+                            <a href="https://www.facebook.com/PSUTOFFICIAL" target="_blank">
+                                <img src="./البيانات الأكاديمية_files/fb.png" width="32" height="32" alt=""></a>
+                            <a href="https://www.linkedin.com/company/princess-sumaya-university-for-technology" target="_blank">
+                                <img src="./البيانات الأكاديمية_files/in.png" width="32" height="32" alt=""></a>
+                            <a href="https://twitter.com/PSUTOFFICIAL" target="_blank">
+                                <img src="./البيانات الأكاديمية_files/tw.png" width="32" height="32" alt=""></a>
+                            <a href="http://www.youtube.com/user/PSUTUniversityoffici" target="_blank">
+                                <img src="./البيانات الأكاديمية_files/yt.png" width="32" height="32" alt=""></a>
+                            <a href="https://www.instagram.com/psutofficial/" target="_blank">
+                                <img src="./البيانات الأكاديمية_files/insta.png" width="31" height="31" alt=""></a>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody></table>
+            <input name="ctl00$lbllang" type="hidden" id="lbllang" value="ar-JO">
+        </div>
+
+        <script type="text/javascript">
+
+            (function () {
+
+                var bodyEl = $('body'),
+                navToggleBtn = bodyEl.find('.nav-toggle-btn');
+                navToggleBtn.on('click', function (e) {
+                    bodyEl.toggleClass('active-nav');
+                    e.preventDefault();
+                });
+
+            })();
+        </script>
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ContentPlaceHolder1_rfvStudyYear"), document.getElementById("ContentPlaceHolder1_rfvStudySemister"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ContentPlaceHolder1_rfvStudyYear = document.all ? document.all["ContentPlaceHolder1_rfvStudyYear"] : document.getElementById("ContentPlaceHolder1_rfvStudyYear");
+ContentPlaceHolder1_rfvStudyYear.controltovalidate = "ContentPlaceHolder1_ddlStudyYear";
+ContentPlaceHolder1_rfvStudyYear.focusOnError = "t";
+ContentPlaceHolder1_rfvStudyYear.errormessage = "*";
+ContentPlaceHolder1_rfvStudyYear.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_rfvStudyYear.initialvalue = "-99";
+var ContentPlaceHolder1_rfvStudySemister = document.all ? document.all["ContentPlaceHolder1_rfvStudySemister"] : document.getElementById("ContentPlaceHolder1_rfvStudySemister");
+ContentPlaceHolder1_rfvStudySemister.controltovalidate = "ContentPlaceHolder1_ddlStudySemister";
+ContentPlaceHolder1_rfvStudySemister.focusOnError = "t";
+ContentPlaceHolder1_rfvStudySemister.errormessage = "*";
+ContentPlaceHolder1_rfvStudySemister.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_rfvStudySemister.initialvalue = "-99";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+ChoosenDropDown();(function() {var fn = function() {$get("toolkitScriptMaster_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('ContentPlaceHolder1_rfvStudyYear').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_rfvStudyYear'));
+}
+
+document.getElementById('ContentPlaceHolder1_rfvStudySemister').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_rfvStudySemister'));
+}
+//]]>
+</script>
+<span style="display: none !important;"><input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""></span><span style="display: none !important;"><input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""></span><span style="display: none !important;"><input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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"></span><span style="display: none !important;"><input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="35EAE451"></span><span style="display: none !important;"><input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="IfzEArBtdFNupsnUgY7wDOWwL9HMK3pNcNhIHAErmg1niITGaoeFOMkOLydQBfkJNlinvfmDp5vFjVWEDXJAVNcC/AyVLglAQzSmDovrKgBBFApGJVXeb1aCJ4XEUZErBpQljdsqnjX51rE4U540I8z3d/nF5oyJ2FyrjVDgT1BpE/9mXDiiW3UIypu501P9JU0OOreVqIWNvthqjerNU7Fv9OJlwaaN3gTsf3+AQIsF1MWq9vs/1SrPBB0hgoMORbN3zjyY93lGWvAPMPtFJQb7c/9uORuFdb+fiWFO0xDGD8eYSD9tWsDVJDuvOkoNCoZPlMhs6DQ7pLjPhztO74wJGXHyejr/jBOM4Zr4n/31V1qNMaA7ZCqAlepvo1Glfi8C9lfapptDFOFM3QaZXPhphPhmymSpg6M/YiAOCReX45McNhHZtzaSILTIDfznpaz4oV5L+Gm4R8eJM4lfJvtAF+vlcYctfUkAMSZET4MPtT7mKYt3OCmKtWeks2n3vUAVDuWkcQizDuHtZAB3tuts+PxgY2wO/5IXWn0Vud/S+0JTVoGz5YnC87c/9ohj+WVqyRG6WMGrRkLh3FlrkciCBWWJJinxvza/WN0hwCEC/2JvQuNes0WFgabnU/PTb+cJXK7Pf5kd0LDHhwAgosDWE+59xZCj7YAbBt5u+ih379AGnRy/Rq/s8yUWJiFCoyZO/CyCisvjLH3qkV7OjWGiMdirgQKX6RR6Lw/qMLkfpksa7R0UTbp3Ks6gP1rd4ENRm7SHdzvUQEvnbxU6elfON8cRt/O3Kz0BZfTUM/0bUxAwd2EqesWN0Q/e8bHwJiU5y8RrIoxzI+dbCRZ70Mvk7Tujh/04V6df+ZCOHAcKdgYnoiyFfb1Rl0U4gEYCxlSZ8t2Ewgdp70dYuPvp4iPxPG5bMsfoGh3rfJG/LgfLv/0JgxntRKz/ZoOlfrh6WoQ9LYWPWySDH6MdNymVKLGuZc8Bfswl0uruDX2xBupFjdrAGfon+SR8QTsacmQ8gm5ZSA=="></span></form>
+
+
+
+
+
+<div class="betternet-wrapper"></div></body></html>
